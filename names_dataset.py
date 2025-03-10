@@ -5,7 +5,7 @@ import os
 
 from torch.utils.data import Dataset
 
-import util
+import word_util
 
 
 class NamesDataset(Dataset):
@@ -28,7 +28,7 @@ class NamesDataset(Dataset):
             lines = open(filename, encoding="utf-8").read().strip().split("\n")
             for name in lines:
                 self.data.append(name)
-                self.data_tensors.append(util.line_to_tensor(name))
+                self.data_tensors.append(word_util.line_to_tensor(name))
                 self.labels.append(label)
 
         # Cache the tensor representation of the labels
